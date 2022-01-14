@@ -72,7 +72,7 @@ spring.redis.ssl: true
 ```
 Можно уже на этом этапе использовать [Heroku Redis](https://devcenter.heroku.com/articles/heroku-redis). Для создания БД необходимо:
 <ul>
- <li>Зарегистрироваться на [Heroku](https://www.heroku.com/) </li>
+ <li>Зарегистрироваться на Heroku</li>
  <li>Создать проект - <i>New/Create new app</i> в правой части экрана </li>
  <li>Перейти на вкладку <i>Resources</i></li>
  <li>В разделе <i>Add-ons</i> ввести в поисковую строку "Heroku Redis", выбрать её в результатах поиска</li>
