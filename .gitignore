@@ -1,0 +1,9 @@
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+target/
+log/
+src/main/resources/application.yaml
