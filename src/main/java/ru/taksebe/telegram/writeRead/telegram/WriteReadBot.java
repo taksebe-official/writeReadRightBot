@@ -11,6 +11,7 @@ import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.starter.SpringWebhookBot;
+import ru.taksebe.telegram.writeRead.constants.bot.BotMessageEnum;
 import ru.taksebe.telegram.writeRead.telegram.handlers.CallbackQueryHandler;
 import ru.taksebe.telegram.writeRead.telegram.handlers.MessageHandler;
 
@@ -37,8 +38,12 @@ public class WriteReadBot extends SpringWebhookBot {
     public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
         try {
             return handleUpdate(update);
-        } catch (IOException e) {
-            return new SendMessage(update.getMessage().getChatId().toString(), "Что-то пошло не так");
+        } catch (IllegalArgumentException e) {
+            return new SendMessage(update.getMessage().getChatId().toString(),
+                    BotMessageEnum.EXCEPTION_ILLEGAL_MESSAGE.getMessage());
+        } catch (Exception e) {
+            return new SendMessage(update.getMessage().getChatId().toString(),
+                    BotMessageEnum.EXCEPTION_WHAT_THE_FUCK.getMessage());
         }
     }
 

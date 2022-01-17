@@ -39,7 +39,9 @@ public class MessageHandler {
 
         String inputText = message.getText();
 
-        if (inputText.equals("/start")) {
+        if (inputText == null) {
+            throw new IllegalArgumentException();
+        } else if (inputText.equals("/start")) {
             return getStartMessage(chatId);
         } else if (inputText.equals(ButtonNameEnum.GET_TASKS_BUTTON.getButtonName())) {
             return getTasksMessage(chatId);
