@@ -61,10 +61,7 @@ public class MessageHandler {
     private SendMessage getStartMessage(String chatId) {
         SendMessage sendMessage = new SendMessage(chatId, BotMessageEnum.HELP_MESSAGE.getMessage());
         sendMessage.enableMarkdown(true);
-        ReplyKeyboardMarkup keyboardMarkup = replyKeyboardMaker.getMainMenuKeyboard();
-        if (keyboardMarkup != null) {
-            sendMessage.setReplyMarkup(keyboardMarkup);
-        }
+        sendMessage.setReplyMarkup(replyKeyboardMaker.getMainMenuKeyboard());
         return sendMessage;
     }
 
