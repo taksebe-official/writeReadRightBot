@@ -15,7 +15,7 @@ public class SpringConfig {
 
     @Bean
     public SetWebhook setWebhookInstance() {
-        return SetWebhook.builder().url(telegramConfig.getWebHookPath()).build();
+        return SetWebhook.builder().url(telegramConfig.getWebhookPath()).build();
     }
 
     @Bean
@@ -24,8 +24,8 @@ public class SpringConfig {
                                          CallbackQueryHandler callbackQueryHandler) {
         WriteReadBot bot = new WriteReadBot(setWebhook, messageHandler, callbackQueryHandler);
 
-        bot.setBotPath(telegramConfig.getWebHookPath());
-        bot.setBotUsername(telegramConfig.getUserName());
+        bot.setBotPath(telegramConfig.getWebhookPath());
+        bot.setBotUsername(telegramConfig.getBotName());
         bot.setBotToken(telegramConfig.getBotToken());
 
         return bot;
